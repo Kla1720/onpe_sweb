@@ -1,0 +1,29 @@
+Options +FollowSymLinks
+Options All -Indexes
+
+#order allow,deny
+#deny from all
+
+RewriteEngine On
+
+#/actas/numero/000001
+
+#/participacion/nacional/departamento
+RewriteRule ^(\w+)/(\w+)/(\w+)$ sweb.php?id=$1&idd=$2&idx=$3
+
+#/actas/ubigeo/peru
+#/actas/ubigeo/extranjero
+RewriteRule ^(\w+)/(\w+)/(\w+)$ sweb.php?id=$1&idd=$2&idx=$3
+
+#/actas/ubigeo/provincias/#
+#/actas/ubigeo/distrito/#
+#/actas/ubigeo/locales/#
+#/actas/ubigeo/grupos/#
+RewriteRule ^(\w+)/(\w+)/(\w+)/([0-9]+)$ sweb.php?id=$1&idd=$2&idx=$3&idy=$4
+
+#/participacion/nacional
+RewriteRule ^(\w+)/(\w+)$ sweb.php?id=$1&idd=$2
+
+#/participacion/nacional/departamento/provincia
+#/participacion/extranjero/continente/pais
+RewriteRule ^(\w+)/(\w+)/(\w+)/(\w+)$ sweb.php?id=$1&idd=$2&idx=$3&idy=$4
